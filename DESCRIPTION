@@ -1,0 +1,15 @@
+Package: RQEntangle
+Type: Package
+Title: Quantum Entanglement of Bipartite Sytem
+Version: 0.1.0
+Author: Who wrote it
+Maintainer: Kwan-yuet Ho, Ph.D. <stephenhky@yahoo.com.hk>
+Description: Schmidt decomposition of bipartite quantum systems
+    and their entanglement metrics
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R(>= 2.15.1),
+    RcppEigen(>= 0.3.3.3.0)
+RoxygenNote: 5.0.1
