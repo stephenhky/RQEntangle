@@ -37,5 +37,5 @@ schmidt.decompose<- function(bipartite.qubits) {
                                   sys2vector=vecmat2[,i]/sqrt(decomposed$values[i]))
                  )
 
-  modes
+  lapply(order(mapply(function(mode) mode$eigenvalue, modes), decreasing = TRUE), function(i) modes[[i]])
 }
