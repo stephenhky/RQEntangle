@@ -11,6 +11,9 @@ reduced.denmat(bipartite.qubits, keep.dim = 1)
 
 \item{bipartitite.qubits}{tensor of bipartite systems}
 }
+\value{
+reduced density matrix
+}
 \description{
 Get reduced density matrix
 }
