@@ -17,4 +17,3 @@ reduced density matrix
 \description{
 Get reduced density matrix
 }
-

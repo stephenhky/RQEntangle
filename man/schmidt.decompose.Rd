@@ -15,4 +15,3 @@ Schmidt modes, including the eigenvalues, and eigenvectors of both subsystems of
 \description{
 Perform Schmidt decomposition
 }
-
