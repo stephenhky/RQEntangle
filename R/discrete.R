@@ -27,7 +27,7 @@ reduced.denmat<- function(bipartite.qubits, keep.dim=1) {
 #'@return Schmidt modes, including the eigenvalues, and eigenvectors of both subsystems of the modes
 #'@export
 schmidt.decompose<- function(bipartite.qubits) {
-  mindim<- min(dim(qubits))
+  mindim<- min(dim(bipartite.qubits))
   red.dm<- reduced.denmat(bipartite.qubits)
   decomposed<- eigen(red.dm, TRUE)
   vecmat2<- bipartite.qubits %*% solve(decomposed$vectors)
