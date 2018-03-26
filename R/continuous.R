@@ -6,7 +6,7 @@
 #'@param x given value of x
 #'@return interpolated value of y
 #'@export
-continuous_function_interpolate<- function(xarr, yarr, x) {
+continuous.function.interpolate<- function(xarr, yarr, x) {
   if (x==max(xarr)) {
     yarr[ length(yarr)]
   } else {
@@ -34,7 +34,7 @@ continuous_function_interpolate<- function(xarr, yarr, x) {
 #'@param yarr a vector of y
 #'@return interpolated lambda function
 #'@export
-interpolated_continuous_function<- function(xarr, yarr) {
+interpolated.continuous.function<- function(xarr, yarr) {
   function(x) continuous_function_interpolate(xarr, yarr, x)
 }
 
@@ -49,7 +49,7 @@ interpolated_continuous_function<- function(xarr, yarr) {
 #'@param nbx1 number of discretized x1 (default: 100)
 #'@param nbx2 number of discretized x2 (default: 100)
 #'@export
-discretize_continuous_bipartitefunc<- function(bifunc, x1lo, x1hi, x2lo, x2hi, nbx1=100, nbx2=100) {
+discretize.continuous.bipartitefunc<- function(bifunc, x1lo, x1hi, x2lo, x2hi, nbx1=100, nbx2=100) {
   dx1<- (x1hi-x1lo)/(nbx1-1)
   dx2<- (x2hi-x2lo)/(nbx2-1)
   tensor<- matrix(rep(0, nbx1*nbx2), byrow = TRUE, nrow = nbx1)
@@ -61,5 +61,27 @@ discretize_continuous_bipartitefunc<- function(bifunc, x1lo, x1hi, x2lo, x2hi, n
   tensor
 }
 
+#' Perform a continuous Schmidt decomposition
+#'
+#'@export
+continuous.schmidt.decompose<- function(bifunc, x1lo, x1hi, x2lo, x2hi, nbx1=100, nbx2=100, keep=min(10, nbx1, nbx2)) {
+  tensor<- discretize.continuous.bipartitefunc(bifunc, x1lo, x1hi, x2lo, x2hi, nbx1=nbx1, nbx2=nbx2)
+  dis.decomposition<- schmidt.decompose(tensor)
 
+  dx1<- (x1hi-x1lo)/(nbx1-1)
+  dx2<- (x2hi-x2lo)/(nbx2-1)
+  x1array<- (1:nbx1)*dx1+x1lo
+  x2array<- (1:nbx2)*dx2+x2lo
+
+  sum.eigvals<- sum(mapply(function(decomposition) decomposition$eigenvalues, dis.decomposition))
+  lapply(dis.decomposition,
+         function(decomposition) {
+           sqnorm1<- decomposition$sys1vector^2 * dx1
+           sqnorm2<- decomposition$sys2vector^2 * dx2
+           list(eigenvalue=decomposition$eigenvalue / sum.eigvals,
+                sys1eigfcn=interpolated.continuous.function(x1array, decomposition$sys1vector / sqrt(sqnorm1)),
+                sys2eigfcn=interpolated.continuous.function(x2array, decomposition$sys2vector / sqrt(sqnorm2))
+           )
+         })
+}
 
