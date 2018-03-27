@@ -6,6 +6,9 @@
 \usage{
 participation.ratio(modes)
 }
+\arguments{
+\item{calculated}{Schmidt modes}
+}
 \value{
 participation ratio
 }

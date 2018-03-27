@@ -6,6 +6,9 @@
 \usage{
 negativity(modes)
 }
+\arguments{
+\item{calculated}{Schmidt modes}
+}
 \value{
 negativity
 }

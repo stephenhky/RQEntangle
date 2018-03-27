@@ -35,7 +35,7 @@ continuous.function.interpolate<- function(xarr, yarr, x) {
 #'@return interpolated lambda function
 #'@export
 interpolated.continuous.function<- function(xarr, yarr) {
-  function(x) continuous_function_interpolate(xarr, yarr, x)
+  function(x) mapply(function(xi) continuous.function.interpolate(xarr, yarr, xi), x)
 }
 
 
@@ -73,11 +73,11 @@ continuous.schmidt.decompose<- function(bifunc, x1lo, x1hi, x2lo, x2hi, nbx1=100
   x1array<- (1:nbx1)*dx1+x1lo
   x2array<- (1:nbx2)*dx2+x2lo
 
-  sum.eigvals<- sum(mapply(function(decomposition) decomposition$eigenvalues, dis.decomposition))
+  sum.eigvals<- sum(mapply(function(decomposition) decomposition$eigenvalue, dis.decomposition))
   lapply(dis.decomposition,
          function(decomposition) {
-           sqnorm1<- decomposition$sys1vector^2 * dx1
-           sqnorm2<- decomposition$sys2vector^2 * dx2
+           sqnorm1<- sum(decomposition$sys1vector^2) * dx1
+           sqnorm2<- sum(decomposition$sys2vector^2) * dx2
            list(eigenvalue=decomposition$eigenvalue / sum.eigvals,
                 sys1eigfcn=interpolated.continuous.function(x1array, decomposition$sys1vector / sqrt(sqnorm1)),
                 sys2eigfcn=interpolated.continuous.function(x2array, decomposition$sys2vector / sqrt(sqnorm2))
