@@ -1,0 +1,49 @@
+---
+title: "CoupledHarmonics"
+author: "Kwan-yuet Ho, Ph.D."
+date: "March 28, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r loading library, include=FALSE}
+library(RQEntangle)
+library(dplyr)
+library(ggplot2)
+```
+
+## Quantum Entanglement in Continuous Systems
+
+Define the coupled harmonic oscillators:
+
+```{r coupledfcn}
+coupled.harm.fcn<- function(x1,x2) exp(-((0.5*(x1+x2))**2))*exp(-(x1-x2)**2)*sqrt(2./pi)
+```
+
+## Schmidt Decompostions
+
+Then run the Schmidt decompotions:
+
+```{r run_decompose}
+modes<- continuous.schmidt.decompose(coupled.harm.fcn, -10, 10, -10, 10)
+```
+
+```{r eigenvals}
+data.frame(n=1:length(modes), eigenvalue=lapply(modes, function(mode) mode$eigenvalue) %>% unlist) %>% 
+  ggplot(aes(x=n, y=eigenvalue)) + geom_point() + ggtitle('Schmidt weights')
+```
+```{r plotmodes1}
+xarray<- seq(-5, 5, 10/50)
+data.frame(x=xarray, y1=modes[[1]]$sys1eigfcn(xarray), y2=modes[[1]]$sys2eigfcn(xarray)) %>%
+  ggplot(aes(x=x)) + geom_line(aes(y=y1), col='red') + geom_line(aes(y=y2), col='blue') + xlab('x') + ylab('y') + 
+  ggtitle('Schmidt mode 1')
+```
+```{r plotmodes2}
+xarray<- seq(-5, 5, 10/50)
+data.frame(x=xarray, y1=modes[[2]]$sys1eigfcn(xarray), y2=modes[[2]]$sys2eigfcn(xarray)) %>%
+  ggplot(aes(x=x)) + geom_line(aes(y=y1), col='red') + geom_line(aes(y=y2), col='blue') + xlab('x') + ylab('y') + 
+  ggtitle('Schmidt mode 2')
+```
