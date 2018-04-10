@@ -11,8 +11,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r loading library, include=FALSE}
 library(RQEntangle)
-library(dplyr)
-library(ggplot2)
 ```
 
 ## Quantum Entanglement of Discrete Systems
