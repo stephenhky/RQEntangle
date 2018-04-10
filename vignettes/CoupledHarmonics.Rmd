@@ -1,5 +1,5 @@
 ---
-title: "CoupledHarmonics"
+title: "Entanglement between Coupled Harmonics"
 author: "Kwan-yuet Ho, Ph.D."
 date: "March 28, 2018"
 output: html_document
