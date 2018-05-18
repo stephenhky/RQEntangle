@@ -8,7 +8,7 @@ discretize.continuous.bipartitefunc(bifunc, x1lo, x1hi, x2lo, x2hi,
   nbx1 = 100, nbx2 = 100)
 }
 \arguments{
-\item{bifunc}{bipartitite continuous function}
+\item{bifunc}{bipartitite continuous wavefunction}
 
 \item{x1lo}{lower limit of \code{x1}}
 
@@ -21,6 +21,9 @@ discretize.continuous.bipartitefunc(bifunc, x1lo, x1hi, x2lo, x2hi,
 \item{nbx1}{number of discretized x1 (default: 100)}
 
 \item{nbx2}{number of discretized x2 (default: 100)}
+}
+\value{
+discretized tensor for Schmidt decomposition
 }
 \description{
 Making a discretized tensor for a continuous function

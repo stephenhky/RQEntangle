@@ -12,7 +12,9 @@
 #   Build and Reload Package:  'Cmd + Shift + B'
 #   Check Package:             'Cmd + Shift + E'
 #   Test Package:              'Cmd + Shift + T'
+#' Hello, World!
 #'
+#'@return None
 #'@export
 hello <- function() {
     print("Hello, world!")

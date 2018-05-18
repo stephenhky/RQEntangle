@@ -41,13 +41,14 @@ interpolated.continuous.function<- function(xarr, yarr) {
 
 #' Making a discretized tensor for a continuous function
 #'
-#'@param bifunc bipartitite continuous function
+#'@param bifunc bipartitite continuous wavefunction
 #'@param x1lo lower limit of \code{x1}
 #'@param x1hi upper limit of \code{x1}
 #'@param x2lo lower limit of \code{x2}
 #'@param x2hi upper limit of \code{x2}
 #'@param nbx1 number of discretized x1 (default: 100)
 #'@param nbx2 number of discretized x2 (default: 100)
+#'@return discretized tensor for Schmidt decomposition
 #'@export
 discretize.continuous.bipartitefunc<- function(bifunc, x1lo, x1hi, x2lo, x2hi, nbx1=100, nbx2=100) {
   dx1<- (x1hi-x1lo)/(nbx1-1)
@@ -63,6 +64,15 @@ discretize.continuous.bipartitefunc<- function(bifunc, x1lo, x1hi, x2lo, x2hi, n
 
 #' Perform a continuous Schmidt decomposition
 #'
+#'@param bifunc bipartitite continuous wavefunction
+#'@param x1lo lower limit of \code{x1}
+#'@param x1hi upper limit of \code{x1}
+#'@param x2lo lower limit of \code{x2}
+#'@param x2hi upper limit of \code{x2}
+#'@param nbx1 number of discretized x1 (default: 100)
+#'@param nbx2 number of discretized x2 (default: 100)
+#'@param keep number of Schmidt modes to keep (default: minimum of 10, \code{nbx1}, and \code{nbx2})
+#'@return Schmidt modes, including the eigenvalues, and the lambda interpolated function of the Schmidt modes
 #'@export
 continuous.schmidt.decompose<- function(bifunc, x1lo, x1hi, x2lo, x2hi, nbx1=100, nbx2=100, keep=min(10, nbx1, nbx2)) {
   tensor<- discretize.continuous.bipartitefunc(bifunc, x1lo, x1hi, x2lo, x2hi, nbx1=nbx1, nbx2=nbx2)

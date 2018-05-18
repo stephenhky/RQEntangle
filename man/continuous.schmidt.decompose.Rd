@@ -7,6 +7,26 @@
 continuous.schmidt.decompose(bifunc, x1lo, x1hi, x2lo, x2hi, nbx1 = 100,
   nbx2 = 100, keep = min(10, nbx1, nbx2))
 }
+\arguments{
+\item{bifunc}{bipartitite continuous wavefunction}
+
+\item{x1lo}{lower limit of \code{x1}}
+
+\item{x1hi}{upper limit of \code{x1}}
+
+\item{x2lo}{lower limit of \code{x2}}
+
+\item{x2hi}{upper limit of \code{x2}}
+
+\item{nbx1}{number of discretized x1 (default: 100)}
+
+\item{nbx2}{number of discretized x2 (default: 100)}
+
+\item{keep}{number of Schmidt modes to keep (default: minimum of 10, \code{nbx1}, and \code{nbx2})}
+}
+\value{
+Schmidt modes, including the eigenvalues, and the lambda interpolated function of the Schmidt modes
+}
 \description{
 Perform a continuous Schmidt decomposition
 }

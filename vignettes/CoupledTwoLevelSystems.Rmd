@@ -1,8 +1,12 @@
 ---
-title: "Entanglement between Coupled Two-Level Systems"
+title: "Entanglement between Two Coupled Two-Level Systems"
 author: "Kwan-yuet Ho, Ph.D."
 date: "April 9, 2018"
-output: html_document
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Entanglement between Two Coupled Two-Level Systems}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include=FALSE}
