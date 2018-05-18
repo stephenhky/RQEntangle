@@ -7,7 +7,7 @@
 participation.ratio(modes)
 }
 \arguments{
-\item{calculated}{Schmidt modes}
+\item{modes}{Schmidt modes}
 }
 \value{
 participation ratio

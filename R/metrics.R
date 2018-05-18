@@ -1,7 +1,7 @@
 
 #' Calculate the entanglement entropy given the calculate Schmidt modes.
 #'
-#'@param calculated Schmidt modes
+#'@param modes Schmidt modes
 #'@return entanglement entropy
 #'@export
 entanglement.entropy<- function(modes) {
@@ -13,7 +13,7 @@ entanglement.entropy<- function(modes) {
 
 #' Calculate the participation ratio given the calculate Schmidt modes.
 #'
-#'@param calculated Schmidt modes
+#'@param modes Schmidt modes
 #'@return participation ratio
 #'@export
 participation.ratio<- function(modes) {
@@ -25,7 +25,7 @@ participation.ratio<- function(modes) {
 
 #' Calculate the negativity given the calculate Schmidt modes.
 #'
-#'@param calculated Schmidt modes
+#'@param modes Schmidt modes
 #'@return negativity
 #'@export
 negativity<- function(modes) {

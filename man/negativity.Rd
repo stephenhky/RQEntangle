@@ -7,7 +7,7 @@
 negativity(modes)
 }
 \arguments{
-\item{calculated}{Schmidt modes}
+\item{modes}{Schmidt modes}
 }
 \value{
 negativity

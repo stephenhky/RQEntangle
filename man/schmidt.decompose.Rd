@@ -7,7 +7,7 @@
 schmidt.decompose(bipartite.qubits)
 }
 \arguments{
-\item{red.dm}{reduced density matrix}
+\item{bipartite.qubits}{tensor of bipartite systems}
 }
 \value{
 Schmidt modes, including the eigenvalues, and eigenvectors of both subsystems of the modes

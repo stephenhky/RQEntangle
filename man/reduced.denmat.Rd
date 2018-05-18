@@ -7,9 +7,9 @@
 reduced.denmat(bipartite.qubits, keep.dim = 1)
 }
 \arguments{
-\item{keep.dim}{dimension to keep (default: 1)}
+\item{bipartite.qubits}{tensor of bipartite systems}
 
-\item{bipartitite.qubits}{tensor of bipartite systems}
+\item{keep.dim}{dimension to keep (default: 1)}
 }
 \value{
 reduced density matrix

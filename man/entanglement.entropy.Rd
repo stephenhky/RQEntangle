@@ -7,7 +7,7 @@
 entanglement.entropy(modes)
 }
 \arguments{
-\item{calculated}{Schmidt modes}
+\item{modes}{Schmidt modes}
 }
 \value{
 entanglement entropy
