@@ -50,6 +50,8 @@ interpolated.continuous.function<- function(xarr, yarr) {
 #'@param nbx2 number of discretized x2 (default: 100)
 #'@return discretized tensor for Schmidt decomposition
 #'@export
+#'@importFrom itertools ihasNext hasNext product
+#'@importFrom iterators nextElem
 discretize.continuous.bipartitefunc<- function(bifunc, x1lo, x1hi, x2lo, x2hi, nbx1=100, nbx2=100) {
   dx1<- (x1hi-x1lo)/(nbx1-1)
   dx2<- (x2hi-x2lo)/(nbx2-1)
