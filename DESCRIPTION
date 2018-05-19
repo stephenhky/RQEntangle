@@ -4,7 +4,7 @@ Title: Quantum Entanglement of Bipartite System
 Version: 0.1.0
 Author: Kwan-yuet Ho
 Maintainer: Kwan-yuet Ho <stephenhky@yahoo.com.hk>
-Description: This package provides routines for computing the Schmidt decomposition of bipartite quantum systems, discrete or continuous,
+Description: It computes the Schmidt decomposition of bipartite quantum systems, discrete or continuous,
     and their respective entanglement metrics.
 License: MIT + file LICENSE
 Encoding: UTF-8
