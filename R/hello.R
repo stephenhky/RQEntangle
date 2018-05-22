@@ -14,8 +14,6 @@
 #   Test Package:              'Cmd + Shift + T'
 #' Hello, World!
 #'
-#'@return None
-#'@export
 hello <- function() {
     print("Hello, world!")
 }

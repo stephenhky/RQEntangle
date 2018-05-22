@@ -4,6 +4,11 @@
 #'@param bipartite.qubits tensor of bipartite systems
 #'@param keep.dim dimension to keep (default: 1)
 #'@return reduced density matrix
+#'
+#'@examples
+#'singlet<- matrix(c(0, sqrt(0.7), sqrt(0.3), 0), byrow = TRUE, nrow = 2)
+#'reduced.denmat(singlet)
+#'
 #'@export
 reduced.denmat<- function(bipartite.qubits, keep.dim=1) {
   if (keep.dim==2) bipartite.qubits<- Conj(t(bipartite.qubits))
@@ -25,6 +30,11 @@ reduced.denmat<- function(bipartite.qubits, keep.dim=1) {
 #'
 #'@param bipartite.qubits tensor of bipartite systems
 #'@return Schmidt modes, including the eigenvalues, and eigenvectors of both subsystems of the modes
+#'
+#'@examples
+#'singlet<- matrix(c(0, sqrt(0.7), sqrt(0.3), 0), byrow = TRUE, nrow = 2)
+#'schmidt.decompose(singlet)
+#'
 #'@export
 schmidt.decompose<- function(bipartite.qubits) {
   mindim<- min(dim(bipartite.qubits))
