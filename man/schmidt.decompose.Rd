@@ -15,3 +15,8 @@ Schmidt modes, including the eigenvalues, and eigenvectors of both subsystems of
 \description{
 Perform Schmidt decomposition
 }
+\examples{
+singlet<- matrix(c(0, sqrt(0.7), sqrt(0.3), 0), byrow = TRUE, nrow = 2)
+schmidt.decompose(singlet)
+
+}

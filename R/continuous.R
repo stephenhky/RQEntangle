@@ -5,7 +5,6 @@
 #'@param yarr a vector of y
 #'@param x given value of x
 #'@return interpolated value of y
-#'@export
 continuous.function.interpolate<- function(xarr, yarr, x) {
   if (x==max(xarr)) {
     yarr[ length(yarr)]
@@ -28,12 +27,11 @@ continuous.function.interpolate<- function(xarr, yarr, x) {
 }
 
 
-#' Lambda function of the interpolated continous function
+#' Lambda function of the interpolated continous function.
 #'
 #'@param xarr a vector of x (sorted)
 #'@param yarr a vector of y
 #'@return interpolated lambda function
-#'@export
 interpolated.continuous.function<- function(xarr, yarr) {
   function(x) mapply(function(xi) continuous.function.interpolate(xarr, yarr, xi), x)
 }
@@ -49,7 +47,6 @@ interpolated.continuous.function<- function(xarr, yarr) {
 #'@param nbx1 number of discretized x1 (default: 100)
 #'@param nbx2 number of discretized x2 (default: 100)
 #'@return discretized tensor for Schmidt decomposition
-#'@export
 #'@importFrom itertools ihasNext hasNext product
 #'@importFrom iterators nextElem
 discretize.continuous.bipartitefunc<- function(bifunc, x1lo, x1hi, x2lo, x2hi, nbx1=100, nbx2=100) {
@@ -75,6 +72,11 @@ discretize.continuous.bipartitefunc<- function(bifunc, x1lo, x1hi, x2lo, x2hi, n
 #'@param nbx2 number of discretized x2 (default: 100)
 #'@param keep number of Schmidt modes to keep (default: minimum of 10, \code{nbx1}, and \code{nbx2})
 #'@return Schmidt modes, including the eigenvalues, and the lambda interpolated function of the Schmidt modes
+#'
+#'@examples
+#'coupled.harm.fcn<- function(x1,x2) exp(-((0.5*(x1+x2))**2))*exp(-(x1-x2)**2)*sqrt(2./pi)
+#'continuous.schmidt.decompose(coupled.harm.fcn, -10, 10, -10, 10)
+#'
 #'@export
 continuous.schmidt.decompose<- function(bifunc, x1lo, x1hi, x2lo, x2hi, nbx1=100, nbx2=100, keep=min(10, nbx1, nbx2)) {
   tensor<- discretize.continuous.bipartitefunc(bifunc, x1lo, x1hi, x2lo, x2hi, nbx1=nbx1, nbx2=nbx2)

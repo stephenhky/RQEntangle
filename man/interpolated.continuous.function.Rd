@@ -2,7 +2,7 @@
 % Please edit documentation in R/continuous.R
 \name{interpolated.continuous.function}
 \alias{interpolated.continuous.function}
-\title{Lambda function of the interpolated continous function}
+\title{Lambda function of the interpolated continous function.}
 \usage{
 interpolated.continuous.function(xarr, yarr)
 }
@@ -15,5 +15,5 @@ interpolated.continuous.function(xarr, yarr)
 interpolated lambda function
 }
 \description{
-Lambda function of the interpolated continous function
+Lambda function of the interpolated continous function.
 }
