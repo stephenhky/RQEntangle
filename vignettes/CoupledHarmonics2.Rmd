@@ -31,7 +31,7 @@ coupled.harm.fcn<- function(x1, x2) sqrt(0.7)*dnorm(x1, mean=0, sd=0.5)*dnorm(x2
 Then run the Schmidt decompotions:
 
 ```{r run_decompose}
-modes<- continuous.schmidt.decompose(coupled.harm.fcn, -10, 10, -10, 10)
+modes<- continuous.schmidt.decompose(coupled.harm.fcn, -10, 10, -10, 10, nbx1 = 200, nbx2 = 200)
 ```
 
 Then we retrieve the weights of the Schmidt modes, and plot the first ten of them:
@@ -55,13 +55,13 @@ And the second Schmidt modes for both subsystems:
 ```{r plotmodes2}
 xarray<- seq(-10, 10, 10/50)
 data.frame(x=xarray, y1=modes[[2]]$sys1eigfcn(xarray), y2=modes[[2]]$sys2eigfcn(xarray)) %>%
-  ggplot(aes(x=x)) + geom_line(aes(y=y1), col='red') + geom_line(aes(y=y2), col='blue') + xlab('x') + ylab('y') + 
+  ggplot(aes(x=x)) + geom_line(aes(y=y1), col='red') + xlab('x') + ylab('y') + 
   ggtitle('Schmidt mode 2')
 ```
 
 ```{r plotmodes2a}
 xarray<- seq(-10, 10, 10/50)
 data.frame(x=xarray, y1=modes[[2]]$sys1eigfcn(xarray), y2=modes[[2]]$sys2eigfcn(xarray)) %>%
-  ggplot(aes(x=x)) + geom_line(aes(y=y1), col='red') + xlab('x') + ylab('y') + 
+  ggplot(aes(x=x)) + geom_line(aes(y=y2), col='red') + xlab('x') + ylab('y') + 
   ggtitle('Schmidt mode 2')
 ```
