@@ -65,3 +65,6 @@ data.frame(x=xarray, y1=modes[[2]]$sys1eigfcn(xarray), y2=modes[[2]]$sys2eigfcn(
   ggplot(aes(x=x)) + geom_line(aes(y=y2), col='red') + xlab('x') + ylab('y') + 
   ggtitle('Schmidt mode 2')
 ```
+```{r printeigval}
+cat(modes[[1]]$eigenvalue, modes[[2]]$eigenvalue, '\n')
+```
