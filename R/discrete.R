@@ -40,7 +40,7 @@ schmidt.decompose<- function(bipartite.qubits) {
   mindim<- min(dim(bipartite.qubits))
   red.dm<- reduced.denmat(bipartite.qubits)
   decomposed<- eigen(red.dm, TRUE)
-  vecmat2<- bipartite.qubits %*% solve(decomposed$vectors)
+  vecmat2<- bipartite.qubits %*% decomposed$vectors
   modes<- lapply(1:mindim,
                  function(i) list(eigenvalue=decomposed$values[i],
                                   sys1vector=decomposed$vectors[,i],
