@@ -37,14 +37,12 @@ reduced.denmat<- function(bipartite.qubits, keep.dim=1) {
 #'
 #'@export
 schmidt.decompose<- function(bipartite.qubits) {
-  mindim<- min(dim(bipartite.qubits))
-  red.dm<- reduced.denmat(bipartite.qubits)
-  decomposed<- eigen(red.dm, TRUE)
-  vecmat2<- bipartite.qubits %*% decomposed$vectors
-  modes<- lapply(1:mindim,
-                 function(i) list(eigenvalue=decomposed$values[i],
-                                  sys1vector=decomposed$vectors[,i],
-                                  sys2vector=vecmat2[,i]/sqrt(decomposed$values[i]))
+  svdres<- svd(bipartite.qubits)
+  nb_modes<- length(svdres$d)
+  modes<- lapply(1:nb_modes,
+                 function(i) list(eigenvalue=svdres$d[i]*svdres$d[i],
+                                  sys1vector=svdres$u[,i],
+                                  sys2vector=svdres$v[,i])
                  )
 
   lapply(order(mapply(function(mode) mode$eigenvalue, modes), decreasing = TRUE), function(i) modes[[i]])
