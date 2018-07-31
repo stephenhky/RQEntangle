@@ -44,7 +44,7 @@ schmidt.decompose<- function(bipartite.qubits) {
   modes<- lapply(1:mindim,
                  function(i) list(eigenvalue=decomposed$values[i],
                                   sys1vector=decomposed$vectors[,i],
-                                  sys2vector=vecmat2[,i]/sqrt(decomposed$values[i]))
+                                  sys2vector=vecmat2[,i]/norm(vecmat2[,i], type="2"))
                  )
 
   lapply(order(mapply(function(mode) mode$eigenvalue, modes), decreasing = TRUE), function(i) modes[[i]])
