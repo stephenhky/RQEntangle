@@ -1,5 +1,5 @@
 ---
-title: "Entanglement in Coupled Harmonics"
+title: "Entanglement in Coupled Harmonics (Simple Two-Body System)"
 author: "Kwan-yuet Ho, Ph.D."
 date: "March 28, 2018"
 vignette: >

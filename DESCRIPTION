@@ -1,7 +1,7 @@
 Package: RQEntangle
 Type: Package
 Title: Quantum Entanglement of Bipartite System
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: person("Kwan-Yuet", "Ho", email = "stephenhky@yahoo.com.hk", role = c("aut", "cre"))
 Description: It computes the Schmidt decomposition of bipartite quantum systems, discrete or continuous,
     and their respective entanglement metrics. See Artur Ekert, Peter L. Knight (1995) <doi:10.1119/1.17904> 

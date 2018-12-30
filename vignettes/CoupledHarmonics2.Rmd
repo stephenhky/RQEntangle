@@ -3,7 +3,7 @@ title: "Entanglement in Coupled Harmonics"
 author: "Kwan-yuet Ho, Ph.D."
 date: "March 28, 2018"
 vignette: >
-  %\VignetteIndexEntry{Entanglement in Coupled Harmonics}
+  %\VignetteIndexEntry{Entanglement in Coupled Harmonics (Separated Particles)}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
