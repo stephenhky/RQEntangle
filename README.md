@@ -1,6 +1,6 @@
 # RQEntangle
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/RQEntangle)](http://cran.r-project.org/package=RQEntangle)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/RQEntangle)](https://CRAN.R-project.org/package=RQEntangle)
 
 ## Quantum Entanglement in R
 
